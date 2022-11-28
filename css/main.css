@@ -1,10 +1,11 @@
-:root {
+ :root {
     --main-text-color: #212121;
     --second-text-color: #757575;
     --accent-text-color: #2196F3;
     --background-color: #2F303A;
     --white-color: #FFFFFF;
     --color-icon: #AFB1B8;
+    --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -76,7 +77,7 @@ h2, h3 {
 .auth-nav a:focus,
 .list a:hover,
 .list a:focus {
-    color: var(--accent-text-color);
+    color: var(--accent-text-color); 
 }
 
 .site-nav,
@@ -85,16 +86,29 @@ h2, h3 {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
-    color: var(--main-text-color);
 }
 
 .site-nav .link.current {
     color: var(--accent-text-color);
+    position: relative;
+}
+
+.current::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    left: 0;
+    bottom: 0;
+    border-radius: 2px;
+    background: var(--accent-text-color);
 }
 
 .site-nav .link {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 32px;
+    padding-bottom: 34px;
+    color: var(--main-text-color);
 }
 
 .auth-nav {
@@ -117,15 +131,16 @@ h2, h3 {
 
 
 .auth-nav .link {
-    color: var(--second-text-color);
     padding-top: 30px;
     padding-bottom: 30px;
+        color: var(--second-text-color);
 }
 
 
 .link {
     text-decoration: none;
     color: inherit;
+    transition: color var(--transition);
 }
 
 .icon-mail {
@@ -183,7 +198,7 @@ h2, h3 {
     padding: 10px 32px;
     margin-top: 0;
     margin-bottom: 30;
-    text-transform: uppercase;
+    tex--transition: uppercase;
     color: #fff;
 }
 
@@ -229,7 +244,7 @@ h2, h3 {
     font-size: 14px;
     line-height: 0.88;
     letter-spacing: 0.03em;
-    text-transform: uppercase;
+    tex--transition: uppercase;
     color: var(--main-text-color);
     margin-top: 30px;
     margin-bottom: 10px;
@@ -268,36 +283,6 @@ h2, h3 {
     height: 70px;
 }
 
-/* .advances .item::before {
-    display: block;
-    content: "";
-    height: 120px;
-    background-color: #F5F4FA;
-    background-size: 70px;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 4px;
-}
-
-.icon-antenna::before {
-    background-image: url(../images/maket2/Vector/antenna.svg);
-}
-
-.icon-clock::before {
-    background-image: url(../images/maket2/Vector/clock.svg);
-}
-
-.icon-diagram::before {
-    background-image: url(../images/maket2/Vector/diagram.svg);
-}
-
-.icon-astronaut::before {
-    background-image: url(../images/maket2/Vector/astronaut.svg);
-}
-
-.list .item:not(:first-child) {
-    margin-left: 30px;
-} */
 
 /* Work */
 
@@ -309,12 +294,33 @@ h2, h3 {
     margin-bottom: 50px;
 }
 
-.work-list .team-list {
-    padding-left: 0;
-}
 
 .work-list .item {
     width: calc((100% - 2 * 15px) / 3);
+            position: relative;
+}
+
+
+.work .item-block {
+    position: absolute;
+    display: flex;
+    content: "";
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    bottom: 0;
+    left: 0;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.8), rgba(47, 48, 58, 0.8));
+    
+
+    color: var(--white-color);
 }
 
 /* Team */
@@ -398,6 +404,7 @@ h2, h3 {
     height: 44px;
     background: inherit;
     fill: var(--color-icon);
+    transition: fill var(--transition), background var(--transition);
 }
 
 
@@ -450,6 +457,7 @@ h2, h3 {
     align-items: center;
     justify-content: center;
     fill: var(--color-icon);
+    transition: fill var(--transition), border-color var(--transition);
 }
 
 .clients .item:not(:first-child) {
@@ -512,11 +520,7 @@ h2, h3 {
 .buttons .btn:focus,
 .buttons .btn:hover {
     background-color: var(--accent-text-color);
-
     color: #ffffff;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.62;
 }
 
 .btn {
@@ -531,6 +535,7 @@ h2, h3 {
     border-radius: 4px;
     border: 1px solid transparent;
     background-color: #F5F4FA;
+    transition: color var(--transition), background-color var(--transition);
 
     cursor: pointer;
 }
@@ -558,8 +563,28 @@ h2, h3 {
 
 .portfolio-list .portfolio-item {
     width: calc((100% - 2 * 30px) / 3);
+    position: relative;
     background: #FFFFFF;
-    /* border: 1px solid #EEEEEE; */
+    box-shadow: none;   
+    transition: box-shadow var(--transition);
+    overflow: hidden;
+    
+}
+
+.portfolio-item .link::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2196F3;
+    transform: translateY(100%);
+}
+
+.portfolio-item:hover .link::before {
+        transform: translateY(0);
 }
 
 .portfolio-list .title {
@@ -601,9 +626,14 @@ h2, h3 {
     letter-spacing: 0.03em;
  }
 
- .portfolio-list:hover .link,
- .portfolio-list .link:focus {
+ .portfolio-item .link {
+    display: block;
+ } 
+
+ .portfolio-list .portfolio-item:hover,
+ .portfolio-list .portfolio-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: ;
  }
 
 
@@ -612,7 +642,8 @@ h2, h3 {
 footer {
     color: var(--white-color);
     background-color: var(--background-color);
-    padding: 60px 215px;
+    padding-top: 60px;
+    padding-bottom: 60px;
     max-width: inherit;
 }
 
@@ -661,7 +692,7 @@ footer {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.03em;
-    text-transform: uppercase;
+    tex--transition: uppercase;
 }
 
 .join {
@@ -681,7 +712,6 @@ footer {
 .join .link:focus {
     background-color: var(--accent-text-color);
 }
-
 
 
 

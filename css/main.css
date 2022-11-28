@@ -163,6 +163,47 @@ h2, h3 {
 
 /* Main */
 
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.is-hidden {
+    visibility: collapse;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 528px;
+    min-height: 581px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    fill: var(--white-color);
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
+        border-radius: 50%;
+        fill: inherit;
+}
+
 .container {
 
     width: 1200px;
@@ -563,28 +604,48 @@ h2, h3 {
 
 .portfolio-list .portfolio-item {
     width: calc((100% - 2 * 30px) / 3);
-    position: relative;
+    /* position: relative; */
     background: #FFFFFF;
     box-shadow: none;   
     transition: box-shadow var(--transition);
-    overflow: hidden;
-    
 }
 
-.portfolio-item .link::before {
-    content: "";
+.port-img {
+    position: relative;
+            overflow: hidden;
+}
+
+.portfolio-item .link {
+        display: block;
+}
+
+.hover-text {
     position: absolute;
-    display: block;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #2196F3;
+    background-color: rgba(33, 150, 243, 0.9);
     transform: translateY(100%);
+    padding: 63px 24px;
+    opacity: 0;
+    transition: opacity var(--transition);
 }
 
-.portfolio-item:hover .link::before {
+.hover-text p {
+    position: absolute;
+    font-weight: 400;
+        font-size: 18px;
+        line-height: 1.56;    
+        letter-spacing: 0.03em;
+    
+        color: #FFFFFF;
+}
+
+.portfolio-item:hover 
+.hover-text {
         transform: translateY(0);
+        opacity: 1;
 }
 
 .portfolio-list .title {

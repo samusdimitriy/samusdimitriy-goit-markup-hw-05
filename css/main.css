@@ -177,6 +177,7 @@ h2, h3 {
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    transition: var(--transition);
 }
 
 .backdrop.is-hidden .modal {
@@ -186,7 +187,7 @@ h2, h3 {
 .modal {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 50%; 
     min-width: 528px;
     min-height: 581px;
 

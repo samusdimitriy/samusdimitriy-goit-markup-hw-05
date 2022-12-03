@@ -58,6 +58,8 @@
     <main>
       <div class="backdrop is-hidden" data-modal>
         <div class="modal">
+          <h2 class="modal-title">Залиште свої дані, ми вам передзвонимо</h2>
+          <form class="form"></form>
           <button data-modal-close type="button" class="close-btn">
             <svg width="30" height="30">
               <use href="./images/symbol-defs.svg#icon-close"></use>
@@ -378,12 +380,15 @@
           </div>
         </div>
         <div class="subscribe">
-          <h3 class="sub-title">Підпишіться на розсилку</h3>
+          <h3 class="sub-title"><span>Підпишіться на розсилку</span></h3>
           <form class="form">
-            <label class="sub-label">
-              <input class="sub-email" type="email" name="email" placeholder="Email" />
-            </label>
-            <button class="sub-btn" type="submit">Підписатися</button>
+            <input class="sub-email" type="email" name="email" placeholder="Email" />
+            <button class="sub-btn" type="submit">
+              <span class="sub-text">Підписатися</span>
+              <svg class="sub-icon" width="24" heigth="24">
+                <use href="./images/symbol-defs.svg#icon-icon-send"></use>
+              </svg>
+            </button>
           </form>
         </div>
       </div>

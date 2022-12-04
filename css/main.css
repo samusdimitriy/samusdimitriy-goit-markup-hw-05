@@ -16,8 +16,6 @@ body {
   background-color: #fff;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  /* width: 1600px; */
-  /* justify-content: center; */
 }
 
 h2,
@@ -25,11 +23,6 @@ h3 {
   font-size: 700;
   letter-spacing: 0.03em;
 }
-
-/* .container {
-    display: flex;
-    justify-content: center;
-} */
 
 /* Header */
 
@@ -119,14 +112,6 @@ h3 {
   margin-left: 50px;
 }
 
-/* .auth-nav .item + .item {
-    margin-left: 50px;
-} */
-
-/* .auth-nav .item {
-    align-self: center;
-} */
-
 .auth-nav .link {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -202,7 +187,7 @@ h3 {
   line-height: 1.15;
   text-align: center;
   letter-spacing: 0.03em;
-  margin-bottom: 12px;
+  margin-bottom: 30px;
 }
 
 .close-btn {
@@ -216,16 +201,144 @@ h3 {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12);
-  /* opacity: 1;
-    transition: opacity var(--transition); */
 }
 
+.field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.input {
+  width: 100%;
+  padding: 11px 45px;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgba(33, 33, 33, 0.2);
+  transition: border-color var(--transition);
+  outline: none;
+}
+
+.input:focus + .form-icon {
+  fill: var(--accent-text-color);
+  /* border-color: var(--accent-text-color); */
+}
+
+.input-block:focus-within .input,
+.input-block:focus-within .textarea {
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: var(--accent-text-color);
+}
+
+.textarea {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  resize: none;
+  border: 1px solid;
+  border-radius: 4px;
+  border-color: rgba(33, 33, 33, 0.2);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+::placeholder {
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.field:not(:last-child) {
+  margin-bottom: 28px;
+}
+
+.input-block {
+  position: relative;
+}
+
+.modal-form {
+  width: 100%;
+}
+
+.form-label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--second-text-color);
+  margin-bottom: 4px;
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: var(--main-text-color);
+  transition: fill var(--transition);
+}
+
+.form-comment {
+  resize: none;
+}
 .container {
   width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--second-text-color);
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.check-icon {
+  display: inline-block;
+  margin-right: 10px;
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--main-text-color);
+  border-radius: 3px;
+  transition: background-image var(--transition);
+}
+
+.check-link {
+  margin-left: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  color: var(--accent-text-color);
+}
+
+.checkbox:checked + .check-icon {
+  border: none;
+  cursor: pointer;
+  background-image: url(../images/maket2/Vector/icon-check.svg);
+  /* transition: background-image var(--transition); */
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
 }
 
 /* Hero */
@@ -759,20 +872,14 @@ footer {
 }
 
 .sub-email {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 15px 16px;
+
   width: 358px;
   height: 50px;
   margin-right: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
   border-radius: 4px;
-  outline: none;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
@@ -781,7 +888,7 @@ footer {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.form {
+.sub-form {
   display: flex;
 }
 
